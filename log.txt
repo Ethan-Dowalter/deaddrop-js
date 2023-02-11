@@ -1,0 +1,28 @@
+New user created: ethan
+Sent message to: ethan
+ethan read their messages
+New user created: jon
+Tried to send message to non-existant user: etha
+Tried to read messages from non-existant user: etha
+ethan failed authentication
+Tried to read messages from non-existant user: ethan
+ethan read their messages
+Tried to read messages from non-existant user: etha
+ethan failed authentication
+ethan read their messages
+Tried to read messages from non-existant user: etha
+ethan read their messages
+ethan failed authentication
+Tried to read messages from non-existant user: ethan
+Tried to read messages from non-existant user: etha
+ethan read their messages
+ethan failed authentication
+Tried to read messages from non-existant user: etha
+Tried to read messages from non-existant user: etha
+ethan read their messages
+ethan failed authentication
+New user created: jimmy
+Sent message to: jimmy
+jimmy read their messages
+jimmy failed authentication
+ethan failed authentication

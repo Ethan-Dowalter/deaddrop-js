@@ -2,7 +2,7 @@ import { writeFileSync } from "fs";
 
 export const writeToLog = async (data: string) => {
     try {
-        writeFileSync('deaddrop.log', data + '\n', {
+        writeFileSync('log.txt', data + '\n', {
             flag: 'a'
         });
     } catch (error) {

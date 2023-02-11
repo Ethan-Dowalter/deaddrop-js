@@ -5,12 +5,15 @@ import { writeToLog } from "./logging";
 export async function readMessages(user: string) {
     try {
         if (!await userExists(user)) {
-            /// Record attempt to read messages from a non-existant user in the log
-            writeToLog("Tried to read messages from non-existant user: " + user);
-
             throw new Error("User does not exist");
         }
+    } catch (error) {
+        /// Record attempt to read messages from a non-existant user in the log
+        writeToLog("Tried to read messages from non-existant user: " + user);
+        return
+    }
 
+    try {
         if (!await authenticate(user)) {
             throw new Error("Unable to authenticate");
         }
