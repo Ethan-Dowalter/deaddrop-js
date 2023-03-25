@@ -16,9 +16,7 @@ const program = new Command();
 
 program
   .version("1.0.0")
-  .description(
-    "a deaddrop tool for storing data and retrieving it later with authentication"
-  )
+  .description("a deaddrop tool for storing data and retrieving it later with authentication")
   .option("--new", "use the utility in new user mode")
   .option("--send", "use the utility in send mode")
   .option("--read", "use the utility in read mode")

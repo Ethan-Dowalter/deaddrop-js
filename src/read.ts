@@ -19,12 +19,22 @@ export async function readMessages(user: string) {
         }
 
         getMessagesForUser(user).then((messages) => {
-            messages.forEach((e: string) => {
-                /// Decrypt the messages with our arbitrary internally-known secret key
-                var CryptoJS = require("crypto-js");
-                var bytes = CryptoJS.AES.decrypt(e, 'U2FsdGVkX1+DWkJSqNMRIESmxlBgLg9MS42do4T+cKU=');
-                var originalText = bytes.toString(CryptoJS.enc.Utf8);
-                console.log(originalText, "\n");
+            /// message_mac_sender is a list of 3 things: the encrypted message, the message authentication code, and the sender of the message (in that order)
+            messages.forEach((message_mac_sender: string[]) => {
+                /// Decrypt and check integrity of the messages with our MAC and arbitrary internally-known secret key
+                const CryptoJS = require("crypto-js");
+                const bytes = CryptoJS.AES.decrypt(message_mac_sender[0], 'U2FsdGVkX1+DWkJSqNMRIESmxlBgLg9MS42do4T+cKU=');
+                const originalText = bytes.toString(CryptoJS.enc.Utf8);
+                const check_mac = CryptoJS.HmacSHA3(originalText, 'U2FsdGVkX1+DWkJSqNMRIESmxlBgLg9MS42do4T+cKU=').toString();
+                if (message_mac_sender[1] != check_mac){
+                    /// Record that a message was changed in the log and tell user
+                    writeToLog("Message integrity of message '" + message_mac_sender[0] + "' could not be verified for user " + user);
+                    console.log("Error: Message integrity could not be verified!");
+                }
+                else{
+                    /// Print message to user
+                    console.log("From " + message_mac_sender[2] + " - " + originalText + "\n");
+                }
             })
         });
 
