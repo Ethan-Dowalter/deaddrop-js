@@ -1,9 +1,12 @@
-3/24/2023 8:49:16 PM - New user created: ethan
-3/24/2023 8:49:27 PM - New user created: jim
-3/24/2023 8:49:38 PM - jim sent message to ethan
-3/24/2023 8:49:47 PM - ethan read their messages
-3/24/2023 8:55:19 PM - jim failed authentication
-3/24/2023 8:55:19 PM - Tried to send message to non-existant user: ethan
-3/24/2023 9:01:47 PM - jim failed authentication
-3/24/2023 9:03:41 PM - jim sent message to ethan
-3/24/2023 9:04:08 PM - ethan read their messages
+3/26/2023 7:54:04 PM - New user created: ethan
+3/26/2023 7:54:14 PM - New user created: jim
+3/26/2023 7:54:42 PM - jim sent message to ethan
+3/26/2023 7:55:28 PM - ethan sent message to jim
+3/26/2023 7:55:43 PM - ethan read their messages
+3/26/2023 7:55:51 PM - jim read their messages
+3/26/2023 7:59:49 PM - ethan read their messages
+3/26/2023 7:59:49 PM - Message integrity of message 'changed message' could not be verified for user ethan
+3/26/2023 8:02:05 PM - jim failed authentication
+3/26/2023 8:02:11 PM - jim sent message to ethan
+3/26/2023 8:02:36 PM - ethan read their messages
+3/26/2023 8:02:36 PM - Message integrity of message 'changed message' could not be verified for user ethan

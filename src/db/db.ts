@@ -15,8 +15,18 @@ CREATE TABLE Messages (
     recipient INTEGER NOT NULL REFERENCES Users(id),
     data TEXT NOT NULL,
     mac TEXT NOT NULL,
-    sender INTEGER NOT NULL REFERENCES Users(id)
+    sender TEXT NOT NULL
 );
+
+CREATE TRIGGER stop_mac_update BEFORE UPDATE OF mac ON Messages
+BEGIN
+    SELECT raise(abort, "You're not allowed to change the MACs!");
+END;
+
+CREATE TRIGGER stop_sender_update BEFORE UPDATE OF sender ON Messages
+BEGIN
+    SELECT raise(abort, "You're not allowed to change the sender!");
+END;
 `
 
 export const connect = async (): Promise<Database<sqlite3.Database, sqlite3.Statement>> => {
